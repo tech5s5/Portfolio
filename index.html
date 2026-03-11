@@ -169,11 +169,60 @@ nav.scrolled{padding:.75rem 3rem;}
 .t-s2s{color:#fd79a8;border-color:rgba(253,121,168,.3);background:rgba(253,121,168,.05);}
 .proj-name{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;color:#fff;line-height:1.1;margin-bottom:.5rem;}
 .proj-sub{font-size:11px;color:var(--muted);letter-spacing:1px;}
-.proj-bullets{list-style:none;}
+.proj-bullets{list-style:none;margin-bottom:0;}
 .proj-bullets li{font-size:12px;color:rgba(255,255,255,.45);padding-left:1.25rem;position:relative;margin-bottom:.4rem;line-height:1.7;}
 .proj-bullets li::before{content:'→';position:absolute;left:0;color:var(--green);font-size:10px;top:2px;}
 .proj-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--border);transition:color .3s,transform .3s;}
 .proj:hover .proj-arrow{color:var(--green);transform:translateY(-50%) translateX(-6px);}
+
+/* LIVE LINK BADGE */
+.proj-live-link{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-top:1.1rem;
+  padding:.45rem 1.1rem .45rem .75rem;
+  border-radius:3px;
+  border:1px solid rgba(0,255,136,0.25);
+  background:rgba(0,255,136,0.04);
+  color:var(--green);
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-decoration:none;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  transition:all .28s ease;
+  width:fit-content;
+}
+.proj-live-link::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(0,255,136,0.08),transparent);
+  transform:translateX(-100%);
+  transition:transform .5s ease;
+}
+.proj-live-link:hover::before{transform:translateX(100%);}
+.proj-live-link:hover{
+  border-color:var(--green);
+  background:rgba(0,255,136,0.1);
+  box-shadow:0 0 18px rgba(0,255,136,0.2),inset 0 0 12px rgba(0,255,136,0.04);
+  transform:translateY(-2px);
+  color:#fff;
+}
+.live-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 6px var(--green);
+  flex-shrink:0;
+  animation:pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot{
+  0%,100%{box-shadow:0 0 4px var(--green),0 0 0 0 rgba(0,255,136,0.4);}
+  50%{box-shadow:0 0 8px var(--green),0 0 0 5px rgba(0,255,136,0);}
+}
+.live-arrow{font-size:11px;transition:transform .25s ease;}
+.proj-live-link:hover .live-arrow{transform:translate(2px,-2px);}
 
 /* SKILLS */
 #skills{background:var(--bg2);border-top:1px solid var(--border);}
@@ -368,6 +417,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
     </div>
 
     <div class="projects-list">
+
+      <!-- 01 -->
       <div class="proj reveal">
         <div class="proj-num">01</div>
         <div class="proj-left">
@@ -385,12 +436,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
         <div class="proj-arrow">→</div>
       </div>
 
+      <!-- 02 — LIVE -->
       <div class="proj reveal">
         <div class="proj-num">02</div>
         <div class="proj-left">
           <div class="proj-tag t-dl">Deep Learning · CNN</div>
           <div class="proj-name">Vegetable Leaf<br>Detection</div>
           <div class="proj-sub">// Computer Vision · Transfer Learning</div>
+          <a href="https://frontend-vegetable.onrender.com" target="_blank" rel="noopener" class="proj-live-link">
+            <span class="live-dot"></span>
+            Live Demo
+            <span class="live-arrow">↗</span>
+          </a>
         </div>
         <div class="proj-right">
           <ul class="proj-bullets">
@@ -401,12 +458,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
         <div class="proj-arrow">→</div>
       </div>
 
+      <!-- 03 — LIVE -->
       <div class="proj reveal">
         <div class="proj-num">03</div>
         <div class="proj-left">
           <div class="proj-tag t-gen">Generative AI</div>
           <div class="proj-name">AI Article<br>Generator</div>
           <div class="proj-sub">// Transformers · Text Generation Pipelines</div>
+          <a href="https://ai-article-generator-s9pd.onrender.com" target="_blank" rel="noopener" class="proj-live-link">
+            <span class="live-dot"></span>
+            Live Demo
+            <span class="live-arrow">↗</span>
+          </a>
         </div>
         <div class="proj-right">
           <ul class="proj-bullets">
@@ -418,12 +481,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
         <div class="proj-arrow">→</div>
       </div>
 
+      <!-- 04 — LIVE -->
       <div class="proj reveal">
         <div class="proj-num">04</div>
         <div class="proj-left">
           <div class="proj-tag t-rag">RAG</div>
           <div class="proj-name">Multi-Modal<br>RAG System</div>
           <div class="proj-sub">// Text + Image · Retrieval · Generation</div>
+          <a href="https://multi-modal-rag-system-1.onrender.com" target="_blank" rel="noopener" class="proj-live-link">
+            <span class="live-dot"></span>
+            Live Demo
+            <span class="live-arrow">↗</span>
+          </a>
         </div>
         <div class="proj-right">
           <ul class="proj-bullets">
@@ -434,6 +503,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
         <div class="proj-arrow">→</div>
       </div>
 
+      <!-- 05 -->
       <div class="proj reveal">
         <div class="proj-num">05</div>
         <div class="proj-left">
@@ -450,6 +520,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
         <div class="proj-arrow">→</div>
       </div>
 
+      <!-- 06 -->
       <div class="proj reveal">
         <div class="proj-num">06</div>
         <div class="proj-left">
@@ -466,6 +537,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
         <div class="proj-arrow">→</div>
       </div>
 
+      <!-- 07 -->
       <div class="proj reveal">
         <div class="proj-num">07</div>
         <div class="proj-left">
@@ -481,6 +553,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
         </div>
         <div class="proj-arrow">→</div>
       </div>
+
     </div>
   </div>
 </section>
@@ -585,7 +658,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:8000;b
     <div class="contact-tagline">Ready to build<br><em>something extraordinary?</em></div>
     <p class="contact-sub">Open to AI engineering roles, research collaborations, and ambitious projects. Let's turn cutting-edge models into real-world impact.</p>
     <div class="hero-actions" style="justify-content:center;">
-      <a href="mailto:sumitsingh@example.com" class="btn-glow btn-primary">Send a Message ↗</a>
+      <a href="mailto:tech2345s55@gmail.com?subject=Website%20Inquiry&body=Hello%20I%20want%20to%20contact%20you" class="btn-glow btn-primary">Send a Message ↗</a>
     </div>
     <div class="contact-links">
       <a href="https://www.linkedin.com/in/sumit-singh5" target="_blank" class="contact-link">
@@ -619,7 +692,7 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
   ring.style.left=rx+'px';ring.style.top=ry+'px';
   requestAnimationFrame(animCursor);
 })();
-document.querySelectorAll('a,button,.proj,.tech-chip').forEach(el=>{
+document.querySelectorAll('a,button,.proj,.tech-chip,.proj-live-link').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cursor.style.width='22px';cursor.style.height='22px';ring.style.width='48px';ring.style.height='48px';ring.style.borderColor='rgba(0,255,136,.7)';});
   el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(0,255,136,.4)';});
 });
